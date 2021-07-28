@@ -23,8 +23,7 @@ type Node struct {
 
 func (t *Node) Insert(val int){
 	if t == nil {
-		t = &Node{Value: val}
-		sugar.Infof("Added node with value %d successfully!", val)
+		sugar.Warnf("Null root node")
 		return
 	}
 
