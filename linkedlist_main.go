@@ -1,5 +1,6 @@
 package main
-import "./LinkedList"
+
+import "github.com/LalithSrinivas/golang-basics/LinkedList"
 
 func main() {
 	head := &LinkedList.Node{Value: 6}

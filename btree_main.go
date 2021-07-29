@@ -1,11 +1,14 @@
 package main
 
-import "./BTree"
+import "github.com/LalithSrinivas/golang-basics/BTree"
 
 // This is an example program using all the functions of Btree
 
 func main() {
-	BTree.Logger.Sync() // flushes buffer, if any
+	err := BTree.Logger.Sync()
+	if err != nil {
+		return
+	} // flushes buffer, if any
 	var rootNode = &BTree.Node{Value: 10}
 	BTree.ChangeLogLevel("Info")
 	println("Log level set to Info")

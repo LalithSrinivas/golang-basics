@@ -20,11 +20,11 @@ type Node struct {
 	next  *Node
 }
 
-func (rootNode *Node) InsertNode(value int){
-	if rootNode == nil{
+func (rootNode *Node) InsertNode(value int) {
+	if rootNode == nil {
 		sugar.Warnf("Root node is null!")
 		return
-	} else if rootNode.next == nil{
+	} else if rootNode.next == nil {
 		rootNode.next = &Node{Value: value}
 		sugar.Infof("Added rootNode with value: %v", value)
 	} else {
@@ -34,7 +34,7 @@ func (rootNode *Node) InsertNode(value int){
 	return
 }
 
-func (rootNode *Node) PrintList()  {
+func (rootNode *Node) PrintList() {
 	if rootNode == nil {
 		sugar.Warnf("Root node is null!")
 		return
@@ -44,18 +44,18 @@ func (rootNode *Node) PrintList()  {
 }
 
 func (rootNode *Node) GetElement(value int) *Node {
-	if rootNode == nil{
+	if rootNode == nil {
 		sugar.Warnf("Root node is null!")
 		return nil
 	}
-	if rootNode.Value == value{
+	if rootNode.Value == value {
 		return rootNode
-	} else{
+	} else {
 		return rootNode.next.GetElement(value)
 	}
 }
 
-func ChangeLogLevel(newLevel string){
+func ChangeLogLevel(newLevel string) {
 	switch newLevel {
 	case "Debug":
 		atomicLevel.SetLevel(zap.DebugLevel)
@@ -66,9 +66,9 @@ func ChangeLogLevel(newLevel string){
 	}
 }
 
-func (root *Node) Merge(root2 *Node)  {
+func (root *Node) Merge(root2 *Node) {
 	pointer := root
-	for pointer.next != nil{
+	for pointer.next != nil {
 		pointer = pointer.next
 	}
 	pointer.next = root2

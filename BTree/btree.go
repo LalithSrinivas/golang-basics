@@ -21,23 +21,23 @@ type Node struct {
 	left  *Node
 }
 
-func (t *Node) Insert(val int){
+func (t *Node) Insert(val int) {
 	if t == nil {
 		sugar.Warnf("Null root node")
 		return
 	}
 
 	if val > t.Value {
-		if t.right == nil{
+		if t.right == nil {
 			sugar.Debugf("Right")
 			sugar.Infof("Added node with value %d successfully!", val)
 			t.right = &Node{Value: val}
-		} else{
+		} else {
 			sugar.Debugf("Right")
 			t.right.Insert(val)
 		}
-	} else{
-		if t.left == nil{
+	} else {
+		if t.left == nil {
 			sugar.Debugf("Left")
 			sugar.Infof("Added node with value %d successfully!", val)
 			t.left = &Node{Value: val}
@@ -50,7 +50,7 @@ func (t *Node) Insert(val int){
 }
 
 func (t *Node) Inorder() {
-	if t == nil{
+	if t == nil {
 		return
 	}
 	t.left.Inorder()
@@ -58,7 +58,7 @@ func (t *Node) Inorder() {
 	t.right.Inorder()
 }
 
-func ChangeLogLevel(newLevel string){
+func ChangeLogLevel(newLevel string) {
 	switch newLevel {
 	case "Debug":
 		atomicLevel.SetLevel(zap.DebugLevel)
